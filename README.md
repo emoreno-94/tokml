@@ -63,7 +63,7 @@ var kmlDocumentName = tokml(geojsonObject, {
 
 ## API
 
-### `tokml(geojsonObject, [options])`
+### `tokml(geojsonObjectOrFolder, [options])`
 
 Given [GeoJSON](http://geojson.org/) data as an object, return KML data as a
 string of XML.
@@ -96,6 +96,21 @@ for the full document.
 
 - `simplestyle`: set to `true` to convert simplestyle-spec styles into KML styles
 
+**Using folders**: If you want have folders in you kml, you can give a object like this:
+```
+{
+  type: 'Folders',
+  folders: [
+    {
+      type: 'Folder',
+      name: '<folder name>',
+      description: '<folder description>',
+      geojson: <GeoJSON>
+    },
+    ...
+  ]
+}
+```
 ## Development
 
 Requires [node.js](http://nodejs.org/) and [browserify](https://github.com/substack/node-browserify):
